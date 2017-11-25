@@ -4,11 +4,11 @@
 an erray and returns a new erray with only
 even numbers */
 
-var originalArray = [1, 3, 6, 14, 21, 100, 2102];
+var original = [1, 4, 5, 6, 10, 13]
 
-var newArray = originalArray.filter(function isEven (arrayNumb) {
-  if (arrayNumb % 2 === 0){
-    return arrayNumb;
-  }
+var fun = original.filter(function isEven(numb) {if(numb%2 === 0) {
+  return numb
+}
+})
 
-console.log(newArray);
+console.log(fun)
