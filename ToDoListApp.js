@@ -43,25 +43,54 @@ var toDo = {
       }
     }
     if (completedTodos === totalTodos) {
-      for (var i = 0; i < totalTodos; i++) {
-        this.toDoList[i].completed = false;
+      for (var k = 0; k < totalTodos; k++) {
+        this.toDoList[k].completed = false;
+      }
       } else {
-        for (var i = 0; i < totalTodos; i++) {
-          this.toDoList[i].completed = true;
+        for (var j = 0; j < totalTodos; j++) {
+          this.toDoList[j].completed = true;
         }
-      } this.displayToDoList();
+      this.displayToDoList();
     }
   }
 };
 
 var displayTodosButton = document.getElementById('displayTodosButton');
-
 displayTodosButton.addEventListener('click', function() {
   toDo.displayToDoList();
 });
-
 var toggleTodosButton = document.getElementById('toggleAllButton');
-
 toggleAllButton.addEventListener('click', function() {
   toDo.toggleAll();
 })
+
+var handlers = {
+  displayTodos: function() {
+    toDo.displayToDoList()
+  },
+  toggleAll: function() {
+    toDo.toggleAll();
+  },
+  addTodo: function() {
+    var addTodoTextInput = document.getElementById('addTodoTextInput');
+    toDo.addTodo(addTodoTextInput.value);
+    addTodoTextInput.value = '';
+  },
+  changeTodo: function() {
+    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+    toDo.changeTodo(changeTodoPositionInput.vauleAsNumber, changeTodoTextInput.value);
+    changeTodoPositionInput.value = '';
+    changeTodoTextInput.value = ''
+  },
+  deleteTodo: function() {
+    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    toDo.deleteTodo(deleteTodoPositionInput.vauleAsNumber);
+    deleteTodoPositionInput.vauleAsNumber = '';
+  },
+  toggleCompleted: function() {
+    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    toDo.toggleCompleted(toggleCompletedPositionInput.vauleAsNumber);
+    toggleCompletedPositionInput.vauleAsNumber = '';
+  }
+};

@@ -11,6 +11,32 @@
     <button id="displayTodosButton">Display To-Do's</button>
     <button id="toggleAllButton">Toggle All</button>
 
+    <div>
+    <button onclick="hadlers.displayTodos()">Display To-Do's</button>
+    <button onclick="handlers.toggleAll()">Toggle All</button>
+    </div>
+
+    <div>
+    <button onclick="handlers.addTodo()">Add</button>
+    <input id="addTodoTextInput" type="text">
+    </div>
+
+    <div>
+    <button onclick="handlers.changeTodo()">Edit</button>
+    <input id="changeTodoPositionInput" type="number">
+    <input id="changeTodoTextInput" type="text">
+    </div>
+
+    <div>
+    <button onclick="handlers.deleteTodo()">Edit</button>
+    <input id="deleteTodoPositionInput" type="number">
+    </div>
+
+    <div>
+    <button onclick="handlers.toggleCompleted()">Edit</button>
+    <input id="toggleCompletedPositionInput" type="number">
+    </div>
+
     <script src="script.js"></script>
   </body>
 
