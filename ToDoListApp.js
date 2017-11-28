@@ -52,4 +52,16 @@ var toDo = {
       } this.displayToDoList();
     }
   }
-}
+};
+
+var displayTodosButton = document.getElementById('displayTodosButton');
+
+displayTodosButton.addEventListener('click', function() {
+  toDo.displayToDoList();
+});
+
+var toggleTodosButton = document.getElementById('toggleAllButton');
+
+toggleAllButton.addEventListener('click', function() {
+  toDo.toggleAll();
+})
