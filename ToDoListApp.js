@@ -94,3 +94,16 @@ var handlers = {
     toggleCompletedPositionInput.vauleAsNumber = '';
   }
 };
+
+var view ={
+  displayTodos: function(){
+    var todosUl = document.querySelector('ul');
+    todosUl.innerHTML = '';
+    for (var i = 0; i < todo.toDoList.length; i++) {
+    var todoLi = document.createElement('li');
+    todoLi.textContent = todo.toDoList.length[i].item;
+    todosUl.appendChild();
+    }
+    for (var i = 0; i < todo.toDoList; i ++)
+  }
+};
