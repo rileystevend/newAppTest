@@ -19,20 +19,16 @@ var toDo = {
       item: itemName,
       completed: false
     });
-    this.displayToDoList();
   },
   changeToDoList: function (position, newTodoText){
     this.toDoList[position].item = newTodoText;
-    this.displayToDoList();
   },
   deleteToDoList: function (index) {
     this.toDoList.splice(index, 1);
-    this.displayToDoList();
   },
   toggleCompleted: function(index){
     var todo = this.toDoList[index];
     toDoList.completed = !todo.completed;
-    this.displayToDoList();
   },
   toggleAll: function() {
     var totalTodos = this.toDoList.length;
@@ -50,7 +46,6 @@ var toDo = {
         for (var j = 0; j < totalTodos; j++) {
           this.toDoList[j].completed = true;
         }
-      this.displayToDoList();
     }
   }
 };
@@ -108,8 +103,8 @@ var view ={
     for (var i = 0; i < todo.toDoList.length; i++) {
     var todoLi = document.createElement('li');
     var todo = todoList.todos[i];
-
     var todoTextWithCompletion = '';
+
     if (toDoList.completed === true) {
       todoTextWithCompletion = '(x) ' + toDoList.item;
     } else {
