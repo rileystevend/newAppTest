@@ -112,7 +112,14 @@ var view ={
     }
 
     todoLi.textContent = todo.toDoList.length[i].item;
+    todoLi.appendChild(this.createDeleteButton())
     todosUl.appendChild(todoLi);
-    }
+  },
+  createDeleteButton: function() {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
+  }
   }
 };
