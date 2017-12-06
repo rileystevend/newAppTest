@@ -83,15 +83,13 @@ var handlers = {
     view.displayTodos();
   },
   deleteTodo: function() {
-    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-    toDo.deleteTodo(deleteTodoPositionInput.vauleAsNumber);
-    deleteTodoPositionInput.vauleAsNumber = '';
+    toDo.deleteTodo(position);
     view.displayTodos();
   },
   toggleCompleted: function() {
     var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
     toDo.toggleCompleted(toggleCompletedPositionInput.vauleAsNumber);
-    toggleCompletedPositionInput.vauleAsNumber = '';
+    toggleCompletedPositionInput.vaule = '';
     view.displayTodos();
   }
 };
@@ -111,6 +109,7 @@ var view ={
       todoTextWithCompletion = '( ) ' + toDoList.item;
     }
 
+    todoLi.id = i;
     todoLi.textContent = todo.toDoList.length[i].item;
     todoLi.appendChild(this.createDeleteButton())
     todosUl.appendChild(todoLi);
@@ -122,4 +121,17 @@ var view ={
     return deleteButton;
   }
   }
-};
+  setUpEventListeners: function (){
+    var todosUl = document.querySelector('ul');
+    todosUl.addEventListener('click', function (event) {
+
+    //get the element that was clicked on
+      var elementClicked = event.target
+    //check if elementClicked is a delete button
+      if (elementClicked.className === 'deleteButton') {
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+    }
+  }
+});
+}
+view.setUpEventListeners();
