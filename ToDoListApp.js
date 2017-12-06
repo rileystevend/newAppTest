@@ -33,19 +33,25 @@ var toDo = {
   toggleAll: function() {
     var totalTodos = this.toDoList.length;
     var completedTodos = 0;
-    for (var i = 0; i < totalTodos; i++) {
-      if (this.toDoList[i].completed === true){
+
+    this.toDoList.forEach(function (todo) {
+      if (todo.completed === true) {
         completedTodos++;
       }
-    }
-    if (completedTodos === totalTodos) {
-      for (var k = 0; k < totalTodos; k++) {
-        this.toDoList[k].completed = false;
-      }
-      } else {
-        for (var j = 0; j < totalTodos; j++) {
-          this.toDoList[j].completed = true;
-        }
+    });
+
+      // if (completedTodos === totalTodos) {
+      // this.toDoList.forEach(function(todo) {
+      //   todo.completed = false;
+      // });
+      // } else {
+      //   this.toDoList.forEach(function(todo) {
+      //     todo.completed = true;
+      //   });
+      //   }
+      this.toDoList.forEach(function(todo) {
+
+      });
     }
   }
 };
