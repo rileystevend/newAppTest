@@ -50,7 +50,11 @@ var toDo = {
       //   });
       //   }
       this.toDoList.forEach(function(todo) {
-
+        if (completedTodos === totalTodos) {
+          todo.completed = false;
+        } else {
+          todo.completed = true;
+        }
       });
     }
   }
@@ -104,22 +108,21 @@ var view ={
   displayTodos: function(){
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    for (var i = 0; i < todo.toDoList.length; i++) {
-    var todoLi = document.createElement('li');
-    var todo = todoList.todos[i];
-    var todoTextWithCompletion = '';
 
-    if (toDoList.completed === true) {
+  toDo.toDoList.forEach(function (todo, position) {
+     var todoLi = document.createElement('li');
+     var todoTextWithCompletion = '';
+     if (toDoList.completed === true) {
       todoTextWithCompletion = '(x) ' + toDoList.item;
-    } else {
+     } else {
       todoTextWithCompletion = '( ) ' + toDoList.item;
     }
-
-    todoLi.id = i;
-    todoLi.textContent = todo.toDoList.length[i].item;
-    todoLi.appendChild(this.createDeleteButton())
-    todosUl.appendChild(todoLi);
-  }},
+     todoLi.id = position;
+     todoLi.textContent = todo.toDoList.length[i].item;
+     todoLi.appendChild(this.createDeleteButton())
+     todosUl.appendChild(todoLi);
+   }, this);
+},
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
